@@ -1,59 +1,121 @@
-function NavBar() {
-  return (
-        <div className="container">
-            
+import React, { useState } from 'react';
+import { X, Menu } from 'lucide-react';
 
-<nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-<a href="" className="flex items-center space-x-3 rtl:space-x-reverse pr-4">
-        <img src="src/assets/logo.png"  className="h-16" alt="Flowbite Logo" />
-        <div className="text-left">
-        <div className="text-2xl font-semibold text-slate-900 dark:text-white">
-            Kairalee Nilayam
-        </div>
-        <div className="text-2xl font-semibold text-slate-900 dark:text-white ">
-            Central School
-        </div>
-        <div className="text-sm text-slate-600 dark:text-slate-400 mt-2">
-            (Affiliated to CBSE, New Delhi)
-        </div>
-    </div>
-</a>
-  <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-        <span className="sr-only">Open main menu</span>
-        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
-    </button>
-  </div>
-  <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-    <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-      <li>
-        <a href="#" className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
-      </li>
-      <li>
-        <a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
-      </li>
-      <li>
-        <a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Academics</a>
-      </li>
-      <li>
-        <a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Admissions</a>
-      </li>
-      <li>
-        <a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Events & Activities</a>
-      </li>
-      <li>
-        <a href="#" className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-      </li>
-    </ul>
-  </div>
-  </div>
-</nav>
 
-        </div>
-        );
+interface MenuItem {
+  title: string;
+  link: string;
+}
+
+const NavBar: React.FC = () => {
+  
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+
+  const menuItems: MenuItem[] = [
+    {
+      title: 'Home',
+      link: '#home'
+    },
+    {
+      title: 'About',
+      link: '#about'
+    },
+    {
+      title: 'Academics',
+      link: '#about'
+    },
+    {
+      title: 'Admissions',
+      link: 'course_01.html'
+    },
+    {
+      title: 'Events & Activities',
+      link: 'events_01.html'
+    },
+    {
+      title: 'Contact Us',
+      link: 'contact_us.html'
     }
+  ];
+
+  return (
+    <div className="header-bottom-area sticky top-0 bg-white shadow-sm transition-all duration-600 z-30">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between">
+          {/* Logo Area */}
+          <div className="flex items-center py-4">
+      <div className="logo mr-4">
+        <a href="index.html">
+          <img src="./src/assets/logo_h.png" alt="Logo" className="max-h-16" />
+        </a>
+      </div>
+      
+    </div>
+          
+          {/* Menu and Icons Area */}
+          <div className="w-5/6 md:w-5/6">
+            <div className="flex justify-end items-center">
+              {/* Main Menu - Desktop */}
+              <div className="main-menu hidden md:block">
+                <nav>
+                  <ul className="flex space-x-6">
+                    {menuItems.map((item, index) => (
+                      <li key={index} className="group relative">
+                        <a 
+                          href={item.link} 
+                          className="py-6 px-2 font-medium hover:text-blue-950 transition-colors flex items-center"
+                        >
+                          {item.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+              
+              {/* Mobile Menu Button */}
+              <div className="md:hidden ml-4">
+                <button 
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+                  className="p-2 focus:outline-none"
+                  aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                >
+                  {mobileMenuOpen ? 
+                    <X className="w-6 h-6" /> : 
+                    <Menu className="w-6 h-6" />
+                  }
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Mobile Menu */}
+        <div 
+          className={`mobile-menu md:hidden transition-all duration-300 overflow-hidden ${mobileMenuOpen ? 'max-h-screen pb-6' : 'max-h-0'}`}
+          aria-hidden={!mobileMenuOpen}
+        >
+          <nav className="mt-2">
+            <ul className="border-t border-gray-200">
+              {menuItems.map((item, index) => (
+                <li key={index} className="border-b border-gray-200">
+                  <div className="flex items-center justify-between">
+                    <a 
+                      href={item.link} 
+                      className="py-3 px-4 block font-medium"
+                    >
+                      {item.title}
+                    </a>
+                    
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default NavBar;

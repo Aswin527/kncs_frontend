@@ -1,9 +1,24 @@
-import NavBar from "../components/NavBar";
+import NavBar from '../components/NavBar';
+import Hero from '../components/Hero';
+import TopHeader from '../components/TopHeader';
+import AboutSection from '../components/AboutSection';
+import AchievementsSection from '../components/AchievementsSection';
+import FacilitiesSection from '../components/FacilitiesSection';
+import LeadershipMessagesSection from '../components/LeadershipMessagesSection';
+import SubscribeAndFooter from '../components/SubscribeAndFooter';
+
 
 function Home() {
   return (
     <div className="container">
-      <NavBar />
+        <TopHeader/>
+        <NavBar/>
+        <Hero />
+        <AboutSection/>
+        <AchievementsSection/>
+        <LeadershipMessagesSection/>
+        <FacilitiesSection/>
+        <SubscribeAndFooter/>
     </div>
   );
 }
