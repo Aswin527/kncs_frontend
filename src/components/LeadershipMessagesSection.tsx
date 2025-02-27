@@ -83,7 +83,7 @@ const LeadershipMessagesSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-2 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className="max-w-3xl mx-auto text-center mb-16">

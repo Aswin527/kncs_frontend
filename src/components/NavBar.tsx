@@ -33,6 +33,14 @@ const NavBar: React.FC = () => {
       link: 'events_01.html'
     },
     {
+      title: 'Resources',
+      link: '#resources'
+    },
+    {
+      title: 'Disclosure',
+      link: '#disclosure'
+    },
+    {
       title: 'Contact Us',
       link: 'contact_us.html'
     }

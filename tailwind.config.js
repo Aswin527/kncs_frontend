@@ -9,7 +9,7 @@ module.exports = {
           background: "#F8F9FA", // Light Gray
           text: "#333333", // Dark Gray
           button: "#2D9CDB" // Bright Blue
-        }
+        },
       }
     },
     plugins: [],

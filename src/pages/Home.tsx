@@ -6,6 +6,7 @@ import AchievementsSection from '../components/AchievementsSection';
 import FacilitiesSection from '../components/FacilitiesSection';
 import LeadershipMessagesSection from '../components/LeadershipMessagesSection';
 import SubscribeAndFooter from '../components/SubscribeAndFooter';
+import TestimonialsExample from '../components/TestimonialsExample';
 
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
         <AchievementsSection/>
         <LeadershipMessagesSection/>
         <FacilitiesSection/>
+        <TestimonialsExample/>
         <SubscribeAndFooter/>
     </div>
   );
