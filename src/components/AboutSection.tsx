@@ -9,6 +9,15 @@ interface NewsItem {
   content: string;
 }
 
+interface AboutData {
+  id: number;
+  about:string;
+}
+
+interface AboutResponse {
+  data: AboutData[];
+}
+
 interface AboutSectionProps {
   // You can add props here if needed later
 }
@@ -36,35 +45,42 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
     }
   ]);
   
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  // State for about data
+  const [aboutData, setAboutData] = useState<AboutData | null>(null);
+  const [isLoadingNews, setIsLoadingNews] = useState<boolean>(false);
+  const [isLoadingAbout, setIsLoadingAbout] = useState<boolean>(false);
+  const [newsError, setNewsError] = useState<string | null>(null);
+  const [aboutError, setAboutError] = useState<string | null>(null);
 
-  // Function to fetch news from API (to be implemented later)
-  const fetchNews = async (): Promise<void> => {
-    setIsLoading(true);
-    setError(null);
+  // Function to fetch about data from API
+  const fetchAboutData = async (): Promise<void> => {
+    setIsLoadingAbout(true);
+    setAboutError(null);
     try {
-      // Placeholder for future API call
-      // const response = await fetch('your-api-endpoint/news');
-      // if (!response.ok) throw new Error('Failed to fetch news');
-      // const data: NewsItem[] = await response.json();
-      // setNewsItems(data);
+      const response = await fetch('http://localhost:1337/api/abouts?id=1');
+      if (!response.ok) throw new Error('Failed to fetch about data');
       
-      // For now, we're using the initial state data
-      // This setTimeout simulates an API call
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 300);
+      const data: AboutResponse = await response.json();
+      if (data.data && data.data.length > 0) {
+        setAboutData(data.data[0]);
+      } else {
+        throw new Error('No about data found');
+      }
+      
+      setIsLoadingAbout(false);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An unknown error occurred');
-      setIsLoading(false);
+      setAboutError(err instanceof Error ? err.message : 'An unknown error occurred');
+      setIsLoadingAbout(false);
     }
   };
 
-  // Effect to fetch news when component mounts
+  // Effect to fetch data when component mounts
   useEffect(() => {
-    // Uncomment this when ready to integrate API
+    // Uncomment this when ready to integrate News API
     // fetchNews();
+    
+    // Fetch about data
+    fetchAboutData();
   }, []);
 
   return (
@@ -80,13 +96,31 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
           <div className="flex flex-col lg:flex-row mb-16">
             <div className="lg:w-7/12 mb-8 lg:mb-0">
               <div className="mb-8">
-                <h1 className="text-3xl md:text-4xl font-bold mb-4">Welcome To KNCS!</h1>
-                <p className="mb-4 text-gray-700">
-                  Sorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod temin cididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exerci tation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure repreh nderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occcu idatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <p className="mb-4 text-gray-700">
-                  Horem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod temin cididunt ut labore et dolore magna aliqua Ut enim ad minim veniam,quis nostrude
-                </p>
+                {isLoadingAbout ? (
+                  <div className="py-4">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4">Loading...</h1>
+                    <p className="mb-4 text-gray-700">Loading about information...</p>
+                  </div>
+                ) : aboutError ? (
+                  <div className="py-4">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4">Error</h1>
+                    <p className="mb-4 text-red-500">{aboutError}</p>
+                  </div>
+                ) : aboutData ? (
+                  <>
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4">{"Welcome To KNCS!"}</h1>
+                    <p className="mb-4 text-gray-700">
+                      {aboutData.about}
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4">Welcome To KNCS!</h1>
+                    <p className="mb-4 text-gray-700">
+                      No about information is available at this time.
+                    </p>
+                  </>
+                )}
                 <button className="mt-5 px-6 py-3 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition duration-300 border border-blue-600">
                   <span>More...</span>
                 </button>
@@ -96,13 +130,13 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
               <div className="bg-blue-50 p-6 rounded-lg shadow-md">
                 <h2 className="text-2xl font-bold mb-4 text-blue-700">News & Announcements</h2>
                 
-                {isLoading ? (
+                {isLoadingNews ? (
                   <div className="py-4 text-center">
                     <p>Loading news...</p>
                   </div>
-                ) : error ? (
+                ) : newsError ? (
                   <div className="py-4 text-center text-red-500">
-                    <p>{error}</p>
+                    <p>{newsError}</p>
                   </div>
                 ) : (
                   <div className="space-y-4">

@@ -180,7 +180,7 @@ const SubscribeAndFooter: React.FC = () => {
         <div className="bg-blue-950 py-6">
           <div className="container mx-auto px-4">
             <div className="text-center text-gray-400">
-              <p>Copyright © {new Date().getFullYear()} Kairalee Nilayam Central School | All Rights Reserved</p>
+              <p>Copyright &copy; {new Date().getFullYear()} Kairalee Nilayam Central School | All Rights Reserved</p>
             </div>
           </div>
         </div>
