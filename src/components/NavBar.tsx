@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
         { title: 'Mission and Vision', link: '/about/mission_vision' },
         { title: 'Management', link: '/about/leadership' },
         { title: 'Campus Tour', link: '/about/campus-tour' },
-        { title: 'School Achievements', link: '/under-maintenance' },
+        { title: 'School Achievements', link: '/school-achievements' },
         { title: 'Additional Info', link: '/additional-info' }
       ]
     },
@@ -42,6 +42,7 @@ const NavBar: React.FC = () => {
       // { title: 'Teaching Methodology', link: '/about/mission' },
       { title: 'Academic Calendar', link: '/academic-calendar' },
       { title: 'Teachers', link: '/teachers' },
+      { title: 'Rules & Regulations', link: '/rules' },
     ]},
     { 
       title: 'Admissions', 
@@ -50,15 +51,14 @@ const NavBar: React.FC = () => {
       { title: 'Admission Process', link: '/admission' },
       { title: 'Fee Structure', link: '/admission#fee-structure' },
       { title: 'Online Admission Form', link: '/admission_form' },
-      { title: 'Prospectus Download', link: '/about/mission' },
     ]},
     { 
       title: 'Events & Activities', link: '',subMenu: [
       { title: 'Co-curricular Activities', link: '/cocurricular-activities' },
       { title: 'Clubs & Organizations', link: '/clubs-organizations' },
-      { title: 'Sports & Fitness', link: '/about/mission' },
-      { title: 'School Events & Competitions', link: '/about/mission' },
-      { title: 'Student Achievements', link: '/about/mission' },
+      { title: 'Sports & Fitness', link: '/sports' },
+      { title: 'School Events & Competitions', link: '/events' },
+      { title: 'Student Achievements', link: '/student-achievements' },
     ]},
     { title: "Student's Corner", link: '/student_showcase' },
     { title: 'Gallery', link: '/gallery' },

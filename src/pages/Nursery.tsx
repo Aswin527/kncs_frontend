@@ -221,7 +221,7 @@ const NurseryPage: React.FC = () => {
   );
 
   // Tab component for grade levels
-  const GradeTab: React.FC<{id: string, label: string, active: boolean, onClick: () => void}> = ({ id, label, active, onClick }) => (
+  const GradeTab: React.FC<{id: string, label: string, active: boolean, onClick: () => void}> = ({ label, active, onClick }) => (
     <button
       onClick={onClick}
       className={`px-6 py-3 font-medium rounded-t-lg transition-colors duration-300 ${

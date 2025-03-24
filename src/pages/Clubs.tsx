@@ -165,14 +165,7 @@ const HouseActivitiesPage: React.FC = () => {
     }
   ];
 
-  const getHouseStyle = (houseName: string) => {
-    const house = houses.find(h => h.name === houseName);
-    return {
-      active: house?.borderColor || "border-gray-300",
-      bg: house?.bgColor || "bg-gray-50",
-      text: house?.textColor || "text-gray-800"
-    };
-  };
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">

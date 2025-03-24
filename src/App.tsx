@@ -24,6 +24,11 @@ import SchoolInfoPage from './pages/AdditionalInfo';
 import AcademicCalendar from './pages/AcademicCalender';
 import CoCurricularActivitiesPage from './pages/CocurricularActivities';
 import HouseActivitiesPage from './pages/Clubs';
+import SportsPage from './pages/Sports';
+import SchoolEventsPage from './pages/Events';
+import StudentAchievementsPage from './pages/StudentAchievements';
+import SchoolRulesPage from './pages/RulesAndRegulations';
+import SchoolAchievementsPage from './pages/SchoolAchievements';
 
 const App: React.FC = () => {
   return (
@@ -192,6 +197,46 @@ const App: React.FC = () => {
       element={
         <Layout pageTitle="Clubs & Organizations">
           <HouseActivitiesPage/>
+        </Layout>
+      } 
+    />
+    <Route 
+      path="/sports" 
+      element={
+        <Layout pageTitle="Sports & Fitness">
+          <SportsPage/>
+        </Layout>
+      } 
+    />
+    <Route 
+      path="/events" 
+      element={
+        <Layout pageTitle="School Events">
+          <SchoolEventsPage/>
+        </Layout>
+      } 
+    />
+    <Route 
+      path="/student-achievements"
+      element={
+        <Layout pageTitle="School Events">
+          <StudentAchievementsPage/>
+        </Layout>
+      } 
+    />
+    <Route 
+      path="/rules" 
+      element={
+        <Layout pageTitle="Rules and Regulations">
+          <SchoolRulesPage/>
+        </Layout>
+      } 
+    />
+    <Route 
+      path="/school-achievements" 
+      element={
+        <Layout pageTitle="School Achievements">
+          <SchoolAchievementsPage/>
         </Layout>
       } 
     />

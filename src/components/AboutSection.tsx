@@ -24,7 +24,7 @@ interface AboutSectionProps {
 
 const AboutSection: React.FC<AboutSectionProps> = () => {
   // State for news items with proper typing
-  const [newsItems, setNewsItems] = useState<NewsItem[]>([
+  const [newsItems] = useState<NewsItem[]>([
     {
       id: 1,
       title: "Upcoming Open House Event",
@@ -47,9 +47,9 @@ const AboutSection: React.FC<AboutSectionProps> = () => {
   
   // State for about data
   const [aboutData, setAboutData] = useState<AboutData | null>(null);
-  const [isLoadingNews, setIsLoadingNews] = useState<boolean>(false);
+  const [isLoadingNews] = useState<boolean>(false);
   const [isLoadingAbout, setIsLoadingAbout] = useState<boolean>(false);
-  const [newsError, setNewsError] = useState<string | null>(null);
+  const [newsError] = useState<string | null>(null);
   const [aboutError, setAboutError] = useState<string | null>(null);
 
   // Function to fetch about data from API

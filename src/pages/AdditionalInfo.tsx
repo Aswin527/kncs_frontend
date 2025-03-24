@@ -116,14 +116,11 @@ const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
 // Main Component
 const SchoolInfoPage: React.FC = () => {
   const { 
-    name, 
     fullName, 
     established, 
     address, 
     email, 
     phone, 
-    mission, 
-    vision, 
     facilities, 
     achievements, 
     staffMembers 

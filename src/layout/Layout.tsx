@@ -14,13 +14,12 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({
   children,
-  pageTitle,
   hideTopComponents = false,
   hideFooter = false
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
-
+  
   useEffect(() => {
     // Scroll to top when location changes
     window.scrollTo(0, 0);
@@ -29,14 +28,14 @@ const Layout: React.FC<LayoutProps> = ({
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 500); // Adjust timing as needed
-
+    
     // Reset loading state on route change
     return () => {
       clearTimeout(timer);
       setIsLoading(true);
     };
   }, [location.pathname]);
-
+  
   return (
     <div className="flex flex-col min-h-screen relative">
       {!hideTopComponents && (
@@ -45,7 +44,7 @@ const Layout: React.FC<LayoutProps> = ({
           <NavBar />
         </>
       )}
-
+      
       <main className="flex-grow w-full relative">
         {isLoading ? (
           <>
@@ -59,7 +58,7 @@ const Layout: React.FC<LayoutProps> = ({
           children
         )}
       </main>
-
+      
       {!hideFooter && <SubscribeAndFooter />}
     </div>
   );

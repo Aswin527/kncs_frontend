@@ -14,7 +14,7 @@ interface DisclosureDocument {
 
 const CBSEDisclosurePage: React.FC = () => {
   // Sample disclosure documents data
-  const [documents, setDocuments] = useState<DisclosureDocument[]>([
+  const [documents] = useState<DisclosureDocument[]>([
     {
       id: '1',
       title: 'Fire Safety Certificate',

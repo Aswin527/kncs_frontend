@@ -19,7 +19,7 @@ function TextBooks() {
   // State for storing API data
   const [textbooks, setTextbooks] = useState<Textbook[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
 
   // Fixed grades (Pre-Nursery, LKG, UKG, and 1-10)
   const grades = [
@@ -46,6 +46,8 @@ function TextBooks() {
         setTextbooks(data);
       } catch (err) {
         setError('Failed to load textbooks. Please try again later.');
+        // Log the error message to the console
+        console.error('Failed to load textbooks. Please try again later.');
         console.error(err);
       } finally {
         setLoading(false);

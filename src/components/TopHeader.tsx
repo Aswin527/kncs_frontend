@@ -45,7 +45,7 @@ const TopHeader = () => {
                   style={{ transform: `translateX(${marqueePosition}%)` }}
                 >
                   <a 
-                    href="#admissions" 
+                    href="/admissions" 
                     className="text-yellow-300 hover:text-yellow-100 transition duration-300"
                   >
                     Registrations for NURSERY to GRADE IX for the next academic year (2025 - 2026) are open now! Click here →

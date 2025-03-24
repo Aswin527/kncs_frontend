@@ -1,29 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SchoolCurriculum from '../components/SchoolCurriculum';
 import TextBooks from '../components/TextBooks';
-// Curriculum section type
-type CurriculumItem = {
-    title: string;
-    description: string;
-  };
 
 const AcademicsPage: React.FC = () => {
  
-  // Curriculum data
-  const curriculumItems: CurriculumItem[] = [
-    {
-      title: "Primary School (Grades 1-5)",
-      description: "The primary curriculum focuses on building strong foundations in language, mathematics, environmental studies, art, and physical education. Students develop essential skills through activity-based learning and explorative methods."
-    },
-    {
-      title: "Middle School (Grades 6-8)",
-      description: "The middle school curriculum expands to include science, social studies, additional languages, and information technology. Students engage in more complex problem-solving and critical thinking activities while continuing to develop fundamental concepts."
-    },
-    {
-      title: "Secondary School (Grades 9-10)",
-      description: "The secondary curriculum prepares students for board examinations with comprehensive studies in science, mathematics, social sciences, languages, and optional subjects. Focus is placed on analytical skills, practical applications, and exam preparation."
-    }
-  ];
 
   return (
     <div className="font-sans">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 // Define TypeScript interfaces for our data
 interface Student {
@@ -274,32 +274,41 @@ const StudentShowcase = () => {
   
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Header with Background Image */}
-      <header className="relative overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0 bg-gradient-to-r from-indigo-900 to-purple-900"
-          style={{
-            backgroundImage: "url('../src/assets/showcase.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundBlendMode: "overlay",
-            opacity: 0.9
-          }}
-        ></div>
-        
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Student Talent Showcase
-            </h1>
-            <p className="mt-3 max-w-md mx-auto text-base text-indigo-100 sm:text-lg md:mt-5 md:text-xl">
-              Celebrating creativity and expression in our school community
-            </p>
-          </div>
-        </div>
-        
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
-      </header>
+  {/* Hero Header with Background Image */}
+  <header className="relative overflow-hidden h-96">
+    <div
+      className="absolute inset-0 z-0 bg-gradient-to-t from-indigo-900 to-purple-900"
+      style={{
+        backgroundImage: "url('../src/assets/20241005_120330.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundBlendMode: "overlay",
+        opacity: 0.9
+      }}
+    ></div>
+    
+    {/* Text overlay for better visibility */}
+    <div className="absolute inset-0 z-0 bg-black opacity-40"></div>
+    
+    <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="text-center">
+        <span className="inline-block bg-white text-indigo-900 px-4 py-1 rounded-full text-sm font-semibold mb-4">
+          2025 Edition
+        </span>
+        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
+          Student Talent Showcase
+        </h1>
+        <p className="mt-3 max-w-md mx-auto text-base text-indigo-100 sm:text-lg md:mt-5 md:text-xl">
+          Celebrating creativity and expression in our school community
+        </p>
+      </div>
+    </div>
+    
+    {/* Bottom fade to match page background */}
+    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
+  </header>
+
+
       
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 -mt-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

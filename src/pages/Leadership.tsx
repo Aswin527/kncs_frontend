@@ -27,27 +27,7 @@ interface LeadershipProps {
 }
 
 const Leadership: React.FC<LeadershipProps> = ({
-  leadershipMembers = {
-    chairman: {
-      name: "Mrs. Sudha Vineethan",
-      position: "Principal",
-      image: "/img/leadership/chairman.jpg",
-      message: "Few things have greater importance to parents than the education of their children. Every parent looks for academic excellence, good values, and discipline for their children. Choosing the right school for them is therefore a crucial decision. NPS provides high standards for educational excellence to their students. We stimulate creativity and develop problem-solving capability in each student. As a family-oriented school, we believe that partnership between the family and school is the foundation of a student's fulfillment and success in later life. All the dynamic institutions in the world today look forward to introducing and affecting a creative approach in the educational curriculum. Teachers play a major role in implementing and supporting the students to gain competence in their efforts."
-    },
-    dean: {
-      name: "Mr. P K Sudhish",
-      position: "Secretary & Correspondent",
-      image: "/img/leadership/dean.jpg",
-      message: "Our commitment to educational excellence goes beyond traditional learning. We focus on holistic development, nurturing not just academic skills but also critical thinking, creativity, and character building. Our curriculum is designed to prepare students for the challenges of a rapidly changing world."
-    },
-    viceChairperson: {
-      name: "Mr. Sudhakaran Ramanthali",
-      position: "President",
-      image: "/img/leadership/vice-chairperson.jpg",
-      message: "We believe in creating an environment that encourages innovation, collaboration, and personal growth. Our leadership team is dedicated to providing resources, support, and guidance that empowers both our students and staff to reach their full potential."
-    }
-  },
-  trustInfo = {
+    trustInfo = {
     name: "Kairalee Kala Samithi (Regd)",
     description: "Kairalee Kala Samithi (Regd) is a charitable society registered under the Karnataka Societies Registration Act, Vide Regn. No. 154/64-65. The land on which the school is running is leased to Kairalee Kala Samithi (Regd) by Hindustan Aeronautics Ltd. Kairalee Nilayam Central School is built in 1 acre plot leased to us by HAL management, this plot is within the limits of Bruhut Bangalore Mahanagara Palike (Greater Bangalore City Muncipal Corporation). Many hands have toiled and many hearts have cared to make Kairalee Kala Samithi to build this institutions what is today. Countless number of children have left the portals of the institutions well equipped to face the challenges of everyday life and have become successful. Kairalee Kala Samithi is a society formed by a team of dynamic people who started this with focus in imparting quality education for varied social, cultural and economic background in the year 1954 . The focus is mainly thrust upon academic, cultural and sports for all children from the deserving to the needy. Kairalee Kala Samithi committed to provide world class learning atmosphere to students. Every institution run by the trust is equipped by state of the infrastructure. We have spacious buildings with well-furnished class rooms, store rooms, assembly area, and facility of sports and games . The backbone of any academic institution is its team of faculty members, we are proud to have some of the eminent educationist in our panel. The students are given education at an affordable cost, free education for the needy and scholarships and sponsors for the deserving students. The members of Society is fond of nurturing and inculcating passion for excellence. The committee members are from diversified vocations who spent their time, effort and funds for the society. The society has undergone many incarnations to reach its present form. Many hands have toiled and many hearts have cared to make Kairalee Kala Samithi, a well - renowned institution in Bangalore. The institution was started in a small scale, and achieved a remarkable growth because we have never forgotten the noble ideals of fostering strong values, mutual understanding and respect to our culture. Countless number of children have left the portals of the institution of the Samithi, well equipped to face the challenges of everyday life.",
     foundedYear: 1985,
@@ -82,7 +62,7 @@ const Leadership: React.FC<LeadershipProps> = ({
     }
   ]
 }) => {
-  const [activeTab, setActiveTab] = useState<keyof typeof leadershipMembers>('chairman');
+  // const [activeTab, setActiveTab] = useState<keyof typeof leadershipMembers>('chairman');
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [showFullDescription, setShowFullDescription] = useState<boolean>(false);
 

@@ -1,9 +1,8 @@
 
 
-import React, { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { 
-  RouteObject, 
-  Navigate 
+  RouteObject,  
 } from 'react-router-dom';
 import Leadership from '../pages/Leadership';
 import FireAndSafety from '../pages/FireAndSafety';
@@ -24,6 +23,11 @@ import SchoolInfoPage from '../pages/AdditionalInfo';
 import AcademicCalendar from '../pages/AcademicCalender';
 import CoCurricularActivitiesPage from '../pages/CocurricularActivities';
 import HouseActivitiesPage from '../pages/Clubs';
+import SportsPage from '../pages/Sports';
+import SchoolEventsPage from '../pages/Events';
+import StudentAchievementsPage from '../pages/StudentAchievements';
+import SchoolRulesPage from '../pages/RulesAndRegulations';
+import SchoolAchievementsPage from '../pages/SchoolAchievements';
 
 // Lazy load components to improve performance
 const Home = lazy(() => import('../pages/Home'));
@@ -37,18 +41,7 @@ const Loader = () => (
   </div>
 );
 
-// Protected Route Component
-const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const isAuthenticated = localStorage.getItem('token'); // Modify this logic as needed
 
-  return isAuthenticated ? (
-    <Suspense fallback={<Loader />}>
-      {children}
-    </Suspense>
-  ) : (
-    <Navigate to="/login" replace />
-  );
-};
 
 // Define route configuration
 export const routes: RouteObject[] = [
@@ -221,6 +214,46 @@ export const routes: RouteObject[] = [
     element: (
       <Suspense fallback={<Loader />}>
         <HouseActivitiesPage/>
+      </Suspense>
+    ),
+  },
+  {
+    path: '/sports',
+    element: (
+      <Suspense fallback={<Loader />}>
+        <SportsPage/>
+      </Suspense>
+    ),
+  },
+  {
+    path: '/events',
+    element: (
+      <Suspense fallback={<Loader />}>
+        <SchoolEventsPage/>
+      </Suspense>
+    ),
+  },
+  {
+    path: '/student-achievements',
+    element: (
+      <Suspense fallback={<Loader />}>
+        <StudentAchievementsPage/>
+      </Suspense>
+    ),
+  },
+  {
+    path: '/rules',
+    element: (
+      <Suspense fallback={<Loader />}>
+        <SchoolRulesPage/>
+      </Suspense>
+    ),
+  },
+  {
+    path: '/school-achievements',
+    element: (
+      <Suspense fallback={<Loader />}>
+        <SchoolAchievementsPage/>
       </Suspense>
     ),
   }
